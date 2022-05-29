@@ -71,6 +71,273 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Linux学习-模块一" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" class="article-date">
+  <time class="dt-published" datetime="2022-05-28T01:05:27.969Z" itemprop="datePublished">2022-05-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux系统的安装和启动"><a href="#Linux系统的安装和启动" class="headerlink" title="Linux系统的安装和启动"></a>Linux系统的安装和启动</h1><p>[toc]</p>
+<h2 id="1-1-Linux系统介绍"><a href="#1-1-Linux系统介绍" class="headerlink" title="1.1 Linux系统介绍"></a>1.1 Linux系统介绍</h2><pre><code>Linux操作系统的前身UNI系统于1969年在AT&amp;T的贝尔实验室诞生，20世纪70年代的UNIX系统由于开源且免费而逐步盛行，但在1979年，AT&amp;T公司宣布了UNIX系统的商业化计划，随之使得开源软件业转变成版权式软件产业，源代码被当作商业机密，成了专利产品，人们再也不能自由得使用享受科技成功。于是在984年，**Richard Stallman** 针对如此封闭的软件创作环境，发起了GNU源代码开放计划并制定了著名的 **GPL许可协议**。1987年，GNU计划获得了一项重大突破，即 **gcc编译器**的发布，使得程序员可以基于该编译器编写属于自己的开源软件。
+
+芬兰赫尔辛基大学的在校生**Linus Torvalds**在1992年10月编写了一款名为**Linux**的操作系统，因其较高的代码品质且基于GPL许可协议的开放源代码特性，迅速引起了GNU计划和一大批黑客程序员的支持，随后linux系统便开始快速发展。1994年1月，**Bob Young**基于Linux系统内核，集成了众多的源代码和程序软件，创办了**Red Hat公司**及**红帽系统**并开始出售技术服务，进一步推动了Linux的普及。1998年，随着基于GNU源代码开放计划的Linux系统的火热，由IBM和Intel牵头的大量IT巨头开始大力推动开放源代码软件的发展。目前，Linux系统已经发展道了5.17版本，并有数百个Linux系统版本，但它们都依然统一使用Linus Torvalds开发并维护的Linux系统内核。Red Hat公司也成为了开源行业及Linux系统使用的带头公司
+</code></pre>
+<h2 id="1-2-安装前的工具准备"><a href="#1-2-安装前的工具准备" class="headerlink" title="1.2 安装前的工具准备"></a>1.2 安装前的工具准备</h2><ol>
+<li>安装虚拟机软件，我使用的是VMware Workstation 16 Pro，(<a target="_blank" rel="noopener" href="https://www.vmware.com/cn/products/workstation-pro/workstation-pro-evaluation.html">下载 VMware Workstation Pro | CN</a>)</li>
+<li>下载需要的Linux镜像文件，我使用的是CentOS 7 x64</li>
+</ol>
+<h2 id="1-3-虚拟机安装与配置"><a href="#1-3-虚拟机安装与配置" class="headerlink" title="1.3 虚拟机安装与配置"></a>1.3 虚拟机安装与配置</h2><pre><code>VMware 16 Pro 的安装全部无脑下一步就行，只需要在最后一步点击许可证，输入许可证激活即可，网上许可证并不难找，我也会在文末放上我所使用的许可证。
+
+安装好后打开VM 16会进入下图所示界面![](image/Linux学习-模块一/1653702691551.png)
+
+可以看到我这里已经创建了3台虚拟机，不用管，点击创建新的虚拟机
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653702788911.png"></p>
+<pre><code>点击下一步，选择稍后安装操作系统
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653702834864.png"></p>
+<pre><code>点击下一步，选择操作系统，选择Linux，打开版本下拉选择栏，选择你所下载的iOS文件的版本。我这里选择的是CentOS 7 64位
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653702913430.png"></p>
+<pre><code>选择好版本后继续下一步，在这里可以看到有虚拟机名称和安装位置选择，虚拟机名称可以按照你喜欢的名字来改，以防未来无法分清各个虚拟机，建议不要动它。安装位置按照自己的实际情况来就好，一般默认是安装在C盘，建议将安装位置改在其他盘。注意，不管你改在什么盘，这个盘的可用空间一定要足够，一般情况需要至少40个G大小的空间
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653703057912.png" alt="img"></p>
+<pre><code>选择完毕后点击下一步，进行磁盘空间的选择，一般20个G足够我们学习使用，下面的将虚拟机磁盘拆分成多个文件最好不要动它，现在的电脑一般用的都是固态硬盘，所以不用担心它会降低多少磁盘性能
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653703383570.png"></p>
+<pre><code>设置好大小之后点击下一步，点击自定义硬件
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653703599323.png"></p>
+<pre><code>在这里你可以管理你的虚拟机内存大小、CPU数量等功能，我们点击**新 CD/DVD (IDE)** 选择使用IOS映像文件，到你放iOS文件的目录双击它，
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653703660698.png"></p>
+<pre><code>选择完成后点击关闭会回到上一张图的位置，点击完成。然后你会得到一个还没开过的虚拟机。因为我已经安装了CentOS 7 64 就没有再次安装
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653703945508.png"></p>
+<pre><code>接下来开启虚拟机，开始安装Linux系统。
+</code></pre>
+<h2 id="1-4-Linux系统安装"><a href="#1-4-Linux系统安装" class="headerlink" title="1.4 Linux系统安装"></a>1.4 Linux系统安装</h2><pre><code>我还是重新安装了一个CentOS，好记录详细步骤。
+
+点击开启虚拟机会进入下面这个界面
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653708713077.png"></p>
+<pre><code>鼠标点击里面的虚拟机屏幕，能进入虚拟机内（点击Ctrl+Alt键能释放鼠标），按下Enter键就开始加载了
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653708864487.png"></p>
+<pre><code>加载完成后会弹出语言选择框，选择中文就好，如果你英语比较好那就按照它默认的选择英文就好
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653708926040.png" alt="img"></p>
+<pre><code>语言选择完成后点击继续，会进入下面这个页面
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709020086.png"></p>
+<pre><code>点击软件选择，安装桌面版系统，当然你也可以安装其他的，不过我还是小白上路安装桌面版最好
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709134415.png"></p>
+<pre><code>点击左上角完成按钮，然后是安装位置，这个直接点完成就行了，不用改什么
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709198255.png"></p>
+<pre><code>接着是网络与主机，这里我为了贴近书上内容将主机名称改为了fisyoung.com，如果你这个界面和我不同，不用担心什么，点击完成就好了
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709448672.png" alt="img"></p>
+<pre><code>下一步点击开始安装会进入下面这个界面
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709495911.png"></p>
+<pre><code>在这里我们就要创建root账户了，点击root密码，
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709573407.png"></p>
+<pre><code>设置完密码后点击完成，如果设置的密码比较简单，需要点击两次完成按钮
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709661744.png"></p>
+<pre><code>普通用户在这里创建与否全看自己选择，没什么影响，安装好后点击重启，它就会自己进入CentOS
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709832262.png"></p>
+<pre><code>这里点击许可信息，接受就好了，
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709915601.png"></p>
+<pre><code>然后创建用户
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653709936016.png" alt="img"></p>
+<pre><code>自己设置就好了，然后点击完成，再点击完成配置
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653710016961.png"></p>
+<pre><code>等待一会就会进入登录界面
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653710068216.png"></p>
+<pre><code>登录之后会出现下面这个界面，无脑前进就好了
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653710153129.png"></p>
+<pre><code>点击Start using CentOS Linux
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653710205165.png"></p>
+<pre><code>它会弹出来这么一个窗口，叉掉就行。
+</code></pre>
+<p><img src="/image/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/1653710320746.png"></p>
+<pre><code>到这里系统就安装成功，可以使用了。
+</code></pre>
+<h2 id="注意：一定要在安装成功后拍摄一张快照，这个时候你的系统时最干净的，以后玩出问题了直接恢复就行"><a href="#注意：一定要在安装成功后拍摄一张快照，这个时候你的系统时最干净的，以后玩出问题了直接恢复就行" class="headerlink" title="注意：一定要在安装成功后拍摄一张快照，这个时候你的系统时最干净的，以后玩出问题了直接恢复就行"></a>注意：一定要在安装成功后拍摄一张快照，这个时候你的系统时最干净的，以后玩出问题了直接恢复就行</h2><blockquote>
+<p>本文是《linux操作系统基础  RHEL 7&#x2F;CentOS 7》一书的学习记录</p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" data-id="cl3rd6qy90000yov1cq69hzzm" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux学习模块三" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/05/27/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%B8%89/" class="article-date">
+  <time class="dt-published" datetime="2022-05-27T05:32:22.362Z" itemprop="datePublished">2022-05-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Linux用户身份和文件权限管理"><a href="#Linux用户身份和文件权限管理" class="headerlink" title="Linux用户身份和文件权限管理"></a>Linux用户身份和文件权限管理</h1><h2 id="3-1-用户与组"><a href="#3-1-用户与组" class="headerlink" title="3.1 用户与组"></a>3.1 用户与组</h2><p>Linux系统对用户的分配如下：1. 系统管理员 （root）2. 系统用户（不可登录）3. 普通用户（可登录）。</p>
+<p>我们登录Linux系统时输入的是账号，但是Linux系统并不会直接识别账号，而是通过我们建立账号时系统分配的ID号码，其中root的ID为0，可登录的普通用户的ID为1000~65535。</p>
+<p>建立用户账号是，系统至少会分配两个ID，一个用户ID（User ID ，UID），一个组ID（Group ID ，GID）。</p>
+<p>管理员组ID为0，非系统组ID为1000~65535。</p>
+<p>对于一个用户而言，只有唯一一个UID，但是可以有很多个不同的组，分别为主组群和附属组。主组群和用户名相同，且只有一个用户（本身），也可以称为私有组。主组群以为的组叫私有组。</p>
+<h3 id="3-1-1-添加、修改与删除用户的命令"><a href="#3-1-1-添加、修改与删除用户的命令" class="headerlink" title="3.1.1 添加、修改与删除用户的命令"></a>3.1.1 添加、修改与删除用户的命令</h3><ol>
+<li><p>useradd 命令用来添加新的用户账户，改命令的操作的语法格式为：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd [参数选项] 用户名</span><br></pre></td></tr></table></figure>
+
+<p>| 参数 | 作用                                                     |</p>
+</li>
+</ol>
+<p>| —- | ——————————————————– |<br>| -M   | 不创建家目录                                             |<br>| -e   | 指定账户过期的日期，格式为MM&#x2F;DD&#x2F;YY 或 YYYY-MM-DD         |<br>| -g   | 指定账户的主组群（必须是）                               |<br>| -G   | 指定账户所属的附属组，各组用逗号分开（必须是已经存在的） |<br>| -n   | 不创建和用户账户同名的私有用户组                         |<br>| -S   | 指定用户账户登陆时使用的shell解释器                      |<br>| -u   | 指定用户账户的默认UID                                    |</p>
+<ol start="2">
+<li><p>passwd 命令设置用户账户登录密码，该命令操作的语法格式为：</p>
+<p><code>passwd [参数选项] [用户账户名]</code></p>
+<p>| 参数    | 作用                                                                   |</p>
+</li>
+</ol>
+<p>| ——- | ———————————————————————- |<br>| -l      | 锁定用户，禁止其登录                                                   |<br>| -u      | 解除锁定，允许用户登录                                                 |<br>| -S      | 显示用户的密码是否被锁定，以及密码所采用的加密算法名称                 |<br>| -d      | 清空账户密码，将不能登录系统，除非重新设置密码                         |<br>| –stdin | 允许通过标准输入修改用户密码，如“echo “123456” 丨 passwd –stdin ww” |</p>
+<ol start="3">
+<li><p>usermod 命令用来修改用户的属性，改命令操作的语法格式为：<br><code>usermod [参数选项] [用户账户名]</code></p>
+<p>| 参数  | 作用                                                           |</p>
+</li>
+</ol>
+<p>| —– | ————————————————————– |<br>| -m,-d | 参数-m与-d连用，可重新指定用户的家目录并自动把旧的数据转移过去 |<br>| -e    | 修改账户过期的日期，格式为MM&#x2F;DD&#x2F;YY或YYYY-MM-DD                 |<br>| -g    | 修改账户的主组群（必须已经存在）                               |<br>| -G    | 修改账户所属的附属组，各组用逗号分隔（必须已经存在）           |<br>| -l    | （小写字母l）修改用户账号名称（usermod -l newname username）   |<br>| -L    | （大写字母L）锁定用户，禁止其登录系统                          |<br>| -U    | 解锁用户，允许其登录系统                                       |<br>| -s    | 修改用户账户登录时使用的shell解释器                            |<br>| -u    | 修改用户账户的UID                                              |</p>
+<ol start="4">
+<li><p>userdel 命令用来删除用户，改命令的操作语法格式为：</p>
+<p><code>userdel [-r] 用户账户名 //“-r”为可选项，若带上该参数，则在删除该账户的同时一并删除该账户对应的主目录</code></p>
+</li>
+</ol>
+<h3 id="3-1-2-添加、修改与删除用户组的命令"><a href="#3-1-2-添加、修改与删除用户组的命令" class="headerlink" title="3.1.2 添加、修改与删除用户组的命令"></a>3.1.2 添加、修改与删除用户组的命令</h3><ol>
+<li><p>groupadd 命令用来增加一个新的用户组，该命令操作的语法格式为：<br><code>groupadd [-g] 用户组 //groupadd命令在创建用户组时，可以通过“-g”参数来指定GID号</code></p>
+</li>
+<li><p>groupmod 命令用来修改用户组的属性，该命令操作的语法格式为：<br><code>groupmod [参数选项] 用户组 </code></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-g</td>
+<td>修改用户组的GID</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>修改用户组名</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>groupdel命令用来删除用户组，该命令的操作语法格式为：<br><code>userdel [参数] 用户账户名</code></p>
+</li>
+</ol>
+<h2 id="3-2-文件权限及归属"><a href="#3-2-文件权限及归属" class="headerlink" title="3.2 文件权限及归属"></a>3.2 文件权限及归属</h2><h3 id="3-2-1-文件的所属主与所属组"><a href="#3-2-1-文件的所属主与所属组" class="headerlink" title="3.2.1 文件的所属主与所属组"></a>3.2.1 文件的所属主与所属组</h3><p>一个Linux目录或文件都会有一个所属主（user）和所属组（group）。<br>所属主是指文件的拥有者，而所属组是指该文件的所属主所在的一个组。</p>
+<h3 id="3-2-2-Linux文件属性及用户权限详解"><a href="#3-2-2-Linux文件属性及用户权限详解" class="headerlink" title="3.2.2 Linux文件属性及用户权限详解"></a>3.2.2 Linux文件属性及用户权限详解</h3><p>分析下列代码：</p>
+<p><code>-rw-r--r--. 1 root root 0 Apr 7 15:42 2.txt</code><br><code>文件类型权限 连接数 文件所属主 文件所属组 文件容量 文件最后被修改的时间 文件名</code></p>
+<ol>
+<li><p>第一列：文件类型权限，包含文件所属类型及用户对该文件的权限。第一列共11位，有的文件是10位，即没有最后一位“.”（此位与 selinux 和 acl 有关）。</p>
+<ul>
+<li>第一位用来描述该文件的类型，有“-”“d”“l”“b”“c”“s”等<br>a. “-”表示该文件为普通文件<br>b. “d”表示该文件为目录<br>c. “l”表示该文件为软链接文件<br>d. “b”表示该文件为块设备，如&#x2F;dev&#x2F;sda<br>e. “c”表示该文件为串行端口设备，如键盘、鼠标等<br>f. “s”表示该文件为套接字文件（socket），用于进程间通信</li>
+<li>后边的9位，每3位为一组，均是“r”“w”“x”三个参数的组合，其中“r”代表可读，“w”代表可写，“x”代表可执行。前三位为所属主（user ， u）的权限，中间3位为所属组（group ， g）的权限，最后3位为其他非本群组（others， o）的权限<br>a. “-rw-r-r–.”代表该文件为普通文件，文件拥有者可读可写不可执行，文件所属组可读不可写不可执行，其他用户可读不可写不可执行<br>b. “drwxr-xr-x.”代表该文件为目录。文件拥有者可读可写可执行，文件所属组可读不可写不可执行，其他用户可读不可写可执行。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>权限分配</th>
+<th>文件所属主</th>
+<th>文件所属组</th>
+<th>其他用户</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>权限项</td>
+<td>读 写 执行</td>
+<td>读 写 执行</td>
+<td>读 写 执行</td>
+</tr>
+<tr>
+<td>字符表示</td>
+<td>r w x</td>
+<td>r w x</td>
+<td>r w x</td>
+</tr>
+<tr>
+<td>数字表示</td>
+<td>4 2 1</td>
+<td>4 2 1</td>
+<td>4 2 1</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>第二列：链接占用的节点（node）。普通文件创建了硬链接后会增加节点数，当为目录时，节点数和该目录下的目录数有关（包括“.”和“..”）。</p>
+</li>
+<li><p>第三列： 该文件的所属主</p>
+</li>
+<li><p>第四列： 该文件的所属组</p>
+</li>
+<li><p>第五列：该文件的大小，以字节（Byte）为单位</p>
+</li>
+<li><p>第六列：该文件最后一次被修改的日期，依次为月份、日期及时间，也就是所谓的Mtime</p>
+</li>
+<li><p>第七列：该文件的文件名</p>
+</li>
+</ol>
+<h3 id="3-2-3-文件权限的更改"><a href="#3-2-3-文件权限的更改" class="headerlink" title="3.2.3 文件权限的更改"></a>3.2.3 文件权限的更改</h3><ol>
+<li>chown 命令用来更改文件的所谓主和所属组，该命令操作的语法格式为：<br><code>chown [-R] 账户名[:组名] 文件名</code><br>如果文件名是目录，并要求同时更改目录下的所有文件，则需要加入“-R”参数递归更改</li>
+<li>chmod 命令用来改变用户对文件的读写执行权限，该命令的语法格式为：      <code>chmod [-R] ijk 文件名 //这里的ijk表示数字</code>      [-R]表示递归更改。在Linux中，为了方便的更改文件权限，常使用数字代替“rwx”；同时 chmod 还支持使用“rwx”的方式来设置权限，可以使用u、g、o来代表user、group、others 的属性，a 则代表all（全部），可以针对u、g、o、a 增加或减少某个权限（读、写或执行）</li>
+<li>一个目录的默认权限为755，而一个普通文件的默认权限为644，这里就涉及umask 命令，该命令操作的语法格式为：<br><code>umask ijl //这里的ijk表示数字</code><br>a. 若用户建立为普通文件，预设没有可执行权限，即666（-rw-rw-rw-）；<br>b. 若用户建立为目录，预设拥有所有权限，即777（drwxrwxrwx）；<br>umask 数值代表的含义是两条规则中默认值需要减去的权限，所以：<br>普通文件的权限为“rw-rw-rw-”-“—-w–w-”&#x3D;“rw-r–r—”；<br>目录的权限为 “rwxrwxrwx”- “—-w–w-”&#x3D;“rwxr-xr-x”。<br>umask的值是可以进行自定义的。（umask的计算不建议换算成数字去做减法）</li>
+</ol>
+<h2 id="3-3-文件特殊权限"><a href="#3-3-文件特殊权限" class="headerlink" title="3.3 文件特殊权限"></a>3.3 文件特殊权限</h2><h3 id="3-3-1-SUID"><a href="#3-3-1-SUID" class="headerlink" title="3.3.1 SUID"></a>3.3.1 SUID</h3><h3 id="3-3-2-SGID"><a href="#3-3-2-SGID" class="headerlink" title="3.3.2 SGID"></a>3.3.2 SGID</h3><h3 id="3-3-3-SBIT-Sticky-Bit"><a href="#3-3-3-SBIT-Sticky-Bit" class="headerlink" title="3.3.3 SBIT(Sticky Bit)"></a>3.3.3 SBIT(Sticky Bit)</h3><h2 id="3-4-文件隐藏属性与访问控制列表"><a href="#3-4-文件隐藏属性与访问控制列表" class="headerlink" title="3.4 文件隐藏属性与访问控制列表"></a>3.4 文件隐藏属性与访问控制列表</h2><h3 id="3-4-1-文件隐藏属性"><a href="#3-4-1-文件隐藏属性" class="headerlink" title="3.4.1 文件隐藏属性"></a>3.4.1 文件隐藏属性</h3><h3 id="3-4-2-访问控制列表"><a href="#3-4-2-访问控制列表" class="headerlink" title="3.4.2 访问控制列表"></a>3.4.2 访问控制列表</h3><h2 id="3-5-su-命令与-sudo-服务"><a href="#3-5-su-命令与-sudo-服务" class="headerlink" title="3.5 su 命令与 sudo 服务"></a>3.5 su 命令与 sudo 服务</h2><h3 id="3-5-1-su-命令"><a href="#3-5-1-su-命令" class="headerlink" title="3.5.1 su 命令"></a>3.5.1 su 命令</h3><h3 id="3-5-2-sudo-命令"><a href="#3-5-2-sudo-命令" class="headerlink" title="3.5.2 sudo 命令"></a>3.5.2 sudo 命令</h3>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/05/27/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%B8%89/" data-id="cl3rd6qye0001yov1boom7xg2" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-ros学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
@@ -83,18 +350,18 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="python-自动轨迹"><a href="#python-自动轨迹" class="headerlink" title="python 自动轨迹"></a>python 自动轨迹</h1><h2 id="正方形"><a href="#正方形" class="headerlink" title="正方形"></a>正方形</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.shape(<span class="string">&quot;turtle&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">t.pendown()</span><br><span class="line">t.color(<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">t.circle(<span class="number">60</span>)</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+        <h1 id="python-自动轨迹"><a href="#python-自动轨迹" class="headerlink" title="python 自动轨迹"></a>python 自动轨迹</h1><h2 id="圆形"><a href="#圆形" class="headerlink" title="圆形"></a>圆形</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.shape(<span class="string">&quot;turtle&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">t.pendown()</span><br><span class="line">t.color(<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line">t.circle(<span class="number">60</span>)</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="三角形"><a href="#三角形" class="headerlink" title="三角形"></a>三角形</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.shape(<span class="string">&quot;turtle&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">t.pendown()</span><br><span class="line">t.color(<span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">	t.seth(i*<span class="number">120</span>)</span><br><span class="line">	t.fd(<span class="number">100</span>)</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="正方形-1"><a href="#正方形-1" class="headerlink" title="正方形"></a>正方形</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.shape(<span class="string">&quot;turtle&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pencolor(<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.fillcolor(<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">	t.forward</span><br><span class="line">	t.left(<span class="number">90</span>)</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="正方形"><a href="#正方形" class="headerlink" title="正方形"></a>正方形</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.shape(<span class="string">&quot;turtle&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pencolor(<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.fillcolor(<span class="string">&#x27;green&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">	t.forward</span><br><span class="line">	t.left(<span class="number">90</span>)</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
 <h2 id="矩形"><a href="#矩形" class="headerlink" title="矩形"></a>矩形</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> turtle</span><br><span class="line">turtle.shape(<span class="string">&quot;turtle&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">import</span> turtle <span class="keyword">as</span> t</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(<span class="number">0</span>,<span class="number">0</span>)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pencolor(<span class="string">&#x27;blue&#x27;</span>)</span><br><span class="line">t.begin_fill()</span><br><span class="line">t.fillcolor(<span class="string">&#x27;bule&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">	<span class="keyword">if</span> i%<span class="number">2</span>==<span class="number">1</span>:</span><br><span class="line">		n=<span class="number">120</span></span><br><span class="line">	<span class="keyword">elif</span> i%<span class="number">2</span>==<span class="number">0</span>:</span><br><span class="line">		n=<span class="number">80</span></span><br><span class="line">	t.forward(n)</span><br><span class="line">	t.left(<span class="number">90</span>)</span><br><span class="line">t.end_fill()</span><br><span class="line">t.penup()</span><br><span class="line">time.sleep(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl3n02u9w0004dov1fumx4abz" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl3rd6qyo0003yov1cssk5coe" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -129,208 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/" data-id="cl3n02u9u0002dov1ahfx4j2i" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Linux学习笔记" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/05/26/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="dt-published" datetime="2022-05-26T00:31:57.978Z" itemprop="datePublished">2022-05-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="命令学习"><a href="#命令学习" class="headerlink" title="命令学习"></a>命令学习</h1><h2 id="gzip-x2F-gunzip"><a href="#gzip-x2F-gunzip" class="headerlink" title="gzip&#x2F;gunzip"></a>gzip&#x2F;gunzip</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gzip 文件名 //压缩指定文件</span><br><span class="line">gzip -r 文件名 //压缩目录里面的文件</span><br><span class="line">gunzip 文件名 //解压指定文件</span><br><span class="line">gunzip -r 文件名 //解压目录里面的压缩文件</span><br><span class="line">zcat 文件名 //查看压缩文件里面的内容</span><br><span class="line">//添加-r参数会递归压缩/解压缩目录层次结构中的文件，同时压缩后会删除原始文件，压缩后缀为.gz</span><br></pre></td></tr></table></figure>
-
-<h2 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar [参数选项] 归档文件名 需归档的原文件或目录 //归档语法</span><br><span class="line">tar [参数选项] 归档文件名 [-C 目标目录] //解归档语法</span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-c</td>
-<td>小写c,创建“.tar”格式的包文件</td>
-</tr>
-<tr>
-<td>-C</td>
-<td>大写C,解包时指定的目标文件</td>
-</tr>
-<tr>
-<td>-f</td>
-<td>指定文档名</td>
-</tr>
-<tr>
-<td>-r</td>
-<td>追加文件至“.tar”格式文件结尾</td>
-</tr>
-<tr>
-<td>-t</td>
-<td>列表查看包内的文件</td>
-</tr>
-<tr>
-<td>-v</td>
-<td>输出详细信息</td>
-</tr>
-<tr>
-<td>-x</td>
-<td>解开“.tar”格式的包文件</td>
-</tr>
-<tr>
-<td>-z</td>
-<td>调用gzip程序进行压缩或解压</td>
-</tr>
-</tbody></table>
-<h2 id="grep"><a href="#grep" class="headerlink" title="grep"></a>grep</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep [参数选项] 查找字符串 普通文件名</span><br><span class="line">grep -n ^内容 文件名 //在文件内查找以“内容”开头的行</span><br><span class="line">grep -n 内容$ 文件名 //在文件内查找以“内容”结尾的行</span><br></pre></td></tr></table></figure>
-
-<h2 id="find"><a href="#find" class="headerlink" title="find"></a>find</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find 路径 匹配表达式</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<table>
-<thead>
-<tr>
-<th>匹配表达式</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-name filename</td>
-<td>查找指定名称的文件</td>
-</tr>
-<tr>
-<td>-user username</td>
-<td>查找指定用户名的文件</td>
-</tr>
-<tr>
-<td>-group groupname</td>
-<td>查找指定用户组的文件</td>
-</tr>
-<tr>
-<td>-type b&#x2F;c&#x2F;d&#x2F;f&#x2F;l</td>
-<td>查找指定类型的文件，如b（块设备）、c（字符设备）、d（目录）、f（普通文件）、l（符号连接）</td>
-</tr>
-<tr>
-<td>-perm mode</td>
-<td>查找指定权限的文件</td>
-</tr>
-<tr>
-<td>-exec command {};</td>
-<td>对匹配条件的文件执行command命令</td>
-</tr>
-</tbody></table>
-<h2 id="输出-x2F-输入重定向和管道命令符的使用"><a href="#输出-x2F-输入重定向和管道命令符的使用" class="headerlink" title="输出&#x2F;输入重定向和管道命令符的使用"></a>输出&#x2F;输入重定向和管道命令符的使用</h2><table>
-<thead>
-<tr>
-<th>符号</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>command &lt; file</td>
-<td>将file文件作为command命令的标准输入</td>
-</tr>
-<tr>
-<td>command &gt; file</td>
-<td>将command命令的结果输出到file文件中，若有则覆盖，若没有则新建</td>
-</tr>
-<tr>
-<td>command &gt;&gt; file</td>
-<td>将command命令的结果输出到file文件中，若有则追加，若没有则新建</td>
-</tr>
-<tr>
-<td>command 2&gt; file</td>
-<td>将command命令结果的错误信息输出到file文件中，若有则覆盖，若没有则新建</td>
-</tr>
-<tr>
-<td>command &amp;&gt;file</td>
-<td>将command命令结果的所有信息（正确和错误）输出到file文件中，若有则覆盖，若没有则新建</td>
-</tr>
-</tbody></table>
-<p>管道命令符“ | ”的作用是将前一个命令的标准输出作为后一个命令的标准输入，格式为“命令1|命令2|命令3”</p>
-<p>echo命令用于在终端输出字符串或变量的值，“–stdin”选项用于从标准输入管道读入新的值，passwd命令用于更改密码</p>
-<h2 id="系统信息和进程管理类命令"><a href="#系统信息和进程管理类命令" class="headerlink" title="系统信息和进程管理类命令"></a>系统信息和进程管理类命令</h2><ol>
-<li>uname 命令用来查看系统内核与系统版本等信息格式为：<br><code>uname [参数命令]</code></li>
-<li>whereis 命令用来寻找命令的可执行文件所在位置，格式为：<br><code>whereis [参数命令] 命令名称</code></li>
-<li>history 命令用来显示历史执行过的命令，格式为：<br><code>history [参数选项]</code></li>
-<li>date 命令用来显示或设定系统的日期与时间，常见参数与作业见下表，语法格式为：<br><code>date [参数选项] [+定义格式]</code></li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>%Y</td>
-<td>年（如2022）</td>
-</tr>
-<tr>
-<td>%m</td>
-<td>月（如05）</td>
-</tr>
-<tr>
-<td>%d</td>
-<td>日（如25）</td>
-</tr>
-<tr>
-<td>%H</td>
-<td>时（00..11）</td>
-</tr>
-<tr>
-<td>%M</td>
-<td>分（00..46）</td>
-</tr>
-<tr>
-<td>%S</td>
-<td>秒（00..55）</td>
-</tr>
-<tr>
-<td>%F</td>
-<td>日期全格式（等同于%Y-%m-%d）</td>
-</tr>
-</tbody></table>
-<p>补：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hwclock -w //设置CMOS时间。强制把系统时间写入CMOS</span><br><span class="line">hwclock -s //设置系统时间。强制把CMOS时间写入系统时间</span><br></pre></td></tr></table></figure>
-
-<ol start="5">
-<li>top 命令用来动态地监控Linux的系统状况，如CPU、内存的使用，其格式为：<br><code>top</code></li>
-</ol>
-<ul>
-<li>第1行：分别是当前系统时间、系统已经运行的时间、当前用户登录个数、负载情况</li>
-<li>第2行：任务（进程），分别是总进程个数、running、sleeping、stopped、zombie状态</li>
-<li>第3行：CPU状态，分别是用户空间、内核空间、改变过优先级的进程、空闲CPU、I&#x2F;O等待、硬中断、软中断占用CPU的百分比。</li>
-<li>第4行：内存状态（单位KB），分别是物理内存总量，使用中的内存总量、空闲内存总量、缓存的内存量</li>
-<li>第5行：Swap交换分区（单位KB），分别是交换区总量、使用的交换区总量、空闲的交换区总量、混充的交换区总量</li>
-<li>第7行：各进程（任务）的状态监控</li>
-<li>top命令是Linux上进行系统监控的首选命令，它的监控单位最小是进程，有时却达不到人们的要求，这是就需要ps和ss两个命令来补充top的不足。</li>
-</ul>
-<ol start="6">
-<li>ps 命令用来查看系统的进程，其格式为：<br><code>ps [参数]  //推荐使用“-ef”参数，“-e”显示所有进程，“-f”全格式，不会截断COMMAND列，当结合grep时就能凸显好处了 </code></li>
-<li>ss 命令用来导出socket的统计数据，它显示与netstat命令类似的信息，但能显示比其他工具更详细的TCP状态信息，其格式为：<br><code>ss [参数] //推荐使用“-tunlp”参数，tunlp会显示所有端口和所有对应的程序，再利用grep管道可以过滤出想要的关键字段。 </code></li>
-<li>who 命令用来查看并显示出所有正在登录本机的用户的名称及其正在开启的终端信息，其格式为：<br><code>who [参数]</code></li>
-<li>stat 命令用来查看文件的储存信息和时间等信息，主要是文件的Access、Modify、Change 三种状态时间，其格式为：<br><code>stat [参数] 文件名</code></li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl3n02u9p0000dov1helxf3f6" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/" data-id="cl3rd6qyo0004yov1azxhhi5g" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -369,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/" data-id="cl3n02u9v0003dov1fmkvd89j" data-title="我的第一篇博客（老传统了）" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/" data-id="cl3rd6qyh0002yov17g17bx0e" data-title="我的第一篇博客（老传统了）" class="article-share-link">Share</a>
       
       
       
@@ -420,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/25/hello-world/" data-id="cl3n02u9s0001dov1fva6caxh" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/25/hello-world/" data-id="cl3rd6qyp0005yov13jrab8lm" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -463,6 +529,14 @@
       <ul>
         
           <li>
+            <a href="/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/27/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%B8%89/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
           </li>
         
@@ -471,15 +545,7 @@
           </li>
         
           <li>
-            <a href="/2022/05/26/Linux%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/">我的第一篇博客（老传统了）</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/25/hello-world/">Hello World</a>
           </li>
         
       </ul>
