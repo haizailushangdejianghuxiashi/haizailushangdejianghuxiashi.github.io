@@ -187,146 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" data-id="cl3rd6qy90000yov1cq69hzzm" data-title="" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Linux学习模块三" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/05/27/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%B8%89/" class="article-date">
-  <time class="dt-published" datetime="2022-05-27T05:32:22.362Z" itemprop="datePublished">2022-05-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux用户身份和文件权限管理"><a href="#Linux用户身份和文件权限管理" class="headerlink" title="Linux用户身份和文件权限管理"></a>Linux用户身份和文件权限管理</h1><h2 id="3-1-用户与组"><a href="#3-1-用户与组" class="headerlink" title="3.1 用户与组"></a>3.1 用户与组</h2><p>Linux系统对用户的分配如下：1. 系统管理员 （root）2. 系统用户（不可登录）3. 普通用户（可登录）。</p>
-<p>我们登录Linux系统时输入的是账号，但是Linux系统并不会直接识别账号，而是通过我们建立账号时系统分配的ID号码，其中root的ID为0，可登录的普通用户的ID为1000~65535。</p>
-<p>建立用户账号是，系统至少会分配两个ID，一个用户ID（User ID ，UID），一个组ID（Group ID ，GID）。</p>
-<p>管理员组ID为0，非系统组ID为1000~65535。</p>
-<p>对于一个用户而言，只有唯一一个UID，但是可以有很多个不同的组，分别为主组群和附属组。主组群和用户名相同，且只有一个用户（本身），也可以称为私有组。主组群以为的组叫私有组。</p>
-<h3 id="3-1-1-添加、修改与删除用户的命令"><a href="#3-1-1-添加、修改与删除用户的命令" class="headerlink" title="3.1.1 添加、修改与删除用户的命令"></a>3.1.1 添加、修改与删除用户的命令</h3><ol>
-<li><p>useradd 命令用来添加新的用户账户，改命令的操作的语法格式为：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd [参数选项] 用户名</span><br></pre></td></tr></table></figure>
-
-<p>| 参数 | 作用                                                     |</p>
-</li>
-</ol>
-<p>| —- | ——————————————————– |<br>| -M   | 不创建家目录                                             |<br>| -e   | 指定账户过期的日期，格式为MM&#x2F;DD&#x2F;YY 或 YYYY-MM-DD         |<br>| -g   | 指定账户的主组群（必须是）                               |<br>| -G   | 指定账户所属的附属组，各组用逗号分开（必须是已经存在的） |<br>| -n   | 不创建和用户账户同名的私有用户组                         |<br>| -S   | 指定用户账户登陆时使用的shell解释器                      |<br>| -u   | 指定用户账户的默认UID                                    |</p>
-<ol start="2">
-<li><p>passwd 命令设置用户账户登录密码，该命令操作的语法格式为：</p>
-<p><code>passwd [参数选项] [用户账户名]</code></p>
-<p>| 参数    | 作用                                                                   |</p>
-</li>
-</ol>
-<p>| ——- | ———————————————————————- |<br>| -l      | 锁定用户，禁止其登录                                                   |<br>| -u      | 解除锁定，允许用户登录                                                 |<br>| -S      | 显示用户的密码是否被锁定，以及密码所采用的加密算法名称                 |<br>| -d      | 清空账户密码，将不能登录系统，除非重新设置密码                         |<br>| –stdin | 允许通过标准输入修改用户密码，如“echo “123456” 丨 passwd –stdin ww” |</p>
-<ol start="3">
-<li><p>usermod 命令用来修改用户的属性，改命令操作的语法格式为：<br><code>usermod [参数选项] [用户账户名]</code></p>
-<p>| 参数  | 作用                                                           |</p>
-</li>
-</ol>
-<p>| —– | ————————————————————– |<br>| -m,-d | 参数-m与-d连用，可重新指定用户的家目录并自动把旧的数据转移过去 |<br>| -e    | 修改账户过期的日期，格式为MM&#x2F;DD&#x2F;YY或YYYY-MM-DD                 |<br>| -g    | 修改账户的主组群（必须已经存在）                               |<br>| -G    | 修改账户所属的附属组，各组用逗号分隔（必须已经存在）           |<br>| -l    | （小写字母l）修改用户账号名称（usermod -l newname username）   |<br>| -L    | （大写字母L）锁定用户，禁止其登录系统                          |<br>| -U    | 解锁用户，允许其登录系统                                       |<br>| -s    | 修改用户账户登录时使用的shell解释器                            |<br>| -u    | 修改用户账户的UID                                              |</p>
-<ol start="4">
-<li><p>userdel 命令用来删除用户，改命令的操作语法格式为：</p>
-<p><code>userdel [-r] 用户账户名 //“-r”为可选项，若带上该参数，则在删除该账户的同时一并删除该账户对应的主目录</code></p>
-</li>
-</ol>
-<h3 id="3-1-2-添加、修改与删除用户组的命令"><a href="#3-1-2-添加、修改与删除用户组的命令" class="headerlink" title="3.1.2 添加、修改与删除用户组的命令"></a>3.1.2 添加、修改与删除用户组的命令</h3><ol>
-<li><p>groupadd 命令用来增加一个新的用户组，该命令操作的语法格式为：<br><code>groupadd [-g] 用户组 //groupadd命令在创建用户组时，可以通过“-g”参数来指定GID号</code></p>
-</li>
-<li><p>groupmod 命令用来修改用户组的属性，该命令操作的语法格式为：<br><code>groupmod [参数选项] 用户组 </code></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>-g</td>
-<td>修改用户组的GID</td>
-</tr>
-<tr>
-<td>-n</td>
-<td>修改用户组名</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>groupdel命令用来删除用户组，该命令的操作语法格式为：<br><code>userdel [参数] 用户账户名</code></p>
-</li>
-</ol>
-<h2 id="3-2-文件权限及归属"><a href="#3-2-文件权限及归属" class="headerlink" title="3.2 文件权限及归属"></a>3.2 文件权限及归属</h2><h3 id="3-2-1-文件的所属主与所属组"><a href="#3-2-1-文件的所属主与所属组" class="headerlink" title="3.2.1 文件的所属主与所属组"></a>3.2.1 文件的所属主与所属组</h3><p>一个Linux目录或文件都会有一个所属主（user）和所属组（group）。<br>所属主是指文件的拥有者，而所属组是指该文件的所属主所在的一个组。</p>
-<h3 id="3-2-2-Linux文件属性及用户权限详解"><a href="#3-2-2-Linux文件属性及用户权限详解" class="headerlink" title="3.2.2 Linux文件属性及用户权限详解"></a>3.2.2 Linux文件属性及用户权限详解</h3><p>分析下列代码：</p>
-<p><code>-rw-r--r--. 1 root root 0 Apr 7 15:42 2.txt</code><br><code>文件类型权限 连接数 文件所属主 文件所属组 文件容量 文件最后被修改的时间 文件名</code></p>
-<ol>
-<li><p>第一列：文件类型权限，包含文件所属类型及用户对该文件的权限。第一列共11位，有的文件是10位，即没有最后一位“.”（此位与 selinux 和 acl 有关）。</p>
-<ul>
-<li>第一位用来描述该文件的类型，有“-”“d”“l”“b”“c”“s”等<br>a. “-”表示该文件为普通文件<br>b. “d”表示该文件为目录<br>c. “l”表示该文件为软链接文件<br>d. “b”表示该文件为块设备，如&#x2F;dev&#x2F;sda<br>e. “c”表示该文件为串行端口设备，如键盘、鼠标等<br>f. “s”表示该文件为套接字文件（socket），用于进程间通信</li>
-<li>后边的9位，每3位为一组，均是“r”“w”“x”三个参数的组合，其中“r”代表可读，“w”代表可写，“x”代表可执行。前三位为所属主（user ， u）的权限，中间3位为所属组（group ， g）的权限，最后3位为其他非本群组（others， o）的权限<br>a. “-rw-r-r–.”代表该文件为普通文件，文件拥有者可读可写不可执行，文件所属组可读不可写不可执行，其他用户可读不可写不可执行<br>b. “drwxr-xr-x.”代表该文件为目录。文件拥有者可读可写可执行，文件所属组可读不可写不可执行，其他用户可读不可写可执行。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>权限分配</th>
-<th>文件所属主</th>
-<th>文件所属组</th>
-<th>其他用户</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>权限项</td>
-<td>读 写 执行</td>
-<td>读 写 执行</td>
-<td>读 写 执行</td>
-</tr>
-<tr>
-<td>字符表示</td>
-<td>r w x</td>
-<td>r w x</td>
-<td>r w x</td>
-</tr>
-<tr>
-<td>数字表示</td>
-<td>4 2 1</td>
-<td>4 2 1</td>
-<td>4 2 1</td>
-</tr>
-</tbody></table>
-</li>
-<li><p>第二列：链接占用的节点（node）。普通文件创建了硬链接后会增加节点数，当为目录时，节点数和该目录下的目录数有关（包括“.”和“..”）。</p>
-</li>
-<li><p>第三列： 该文件的所属主</p>
-</li>
-<li><p>第四列： 该文件的所属组</p>
-</li>
-<li><p>第五列：该文件的大小，以字节（Byte）为单位</p>
-</li>
-<li><p>第六列：该文件最后一次被修改的日期，依次为月份、日期及时间，也就是所谓的Mtime</p>
-</li>
-<li><p>第七列：该文件的文件名</p>
-</li>
-</ol>
-<h3 id="3-2-3-文件权限的更改"><a href="#3-2-3-文件权限的更改" class="headerlink" title="3.2.3 文件权限的更改"></a>3.2.3 文件权限的更改</h3><ol>
-<li>chown 命令用来更改文件的所谓主和所属组，该命令操作的语法格式为：<br><code>chown [-R] 账户名[:组名] 文件名</code><br>如果文件名是目录，并要求同时更改目录下的所有文件，则需要加入“-R”参数递归更改</li>
-<li>chmod 命令用来改变用户对文件的读写执行权限，该命令的语法格式为：      <code>chmod [-R] ijk 文件名 //这里的ijk表示数字</code>      [-R]表示递归更改。在Linux中，为了方便的更改文件权限，常使用数字代替“rwx”；同时 chmod 还支持使用“rwx”的方式来设置权限，可以使用u、g、o来代表user、group、others 的属性，a 则代表all（全部），可以针对u、g、o、a 增加或减少某个权限（读、写或执行）</li>
-<li>一个目录的默认权限为755，而一个普通文件的默认权限为644，这里就涉及umask 命令，该命令操作的语法格式为：<br><code>umask ijl //这里的ijk表示数字</code><br>a. 若用户建立为普通文件，预设没有可执行权限，即666（-rw-rw-rw-）；<br>b. 若用户建立为目录，预设拥有所有权限，即777（drwxrwxrwx）；<br>umask 数值代表的含义是两条规则中默认值需要减去的权限，所以：<br>普通文件的权限为“rw-rw-rw-”-“—-w–w-”&#x3D;“rw-r–r—”；<br>目录的权限为 “rwxrwxrwx”- “—-w–w-”&#x3D;“rwxr-xr-x”。<br>umask的值是可以进行自定义的。（umask的计算不建议换算成数字去做减法）</li>
-</ol>
-<h2 id="3-3-文件特殊权限"><a href="#3-3-文件特殊权限" class="headerlink" title="3.3 文件特殊权限"></a>3.3 文件特殊权限</h2><h3 id="3-3-1-SUID"><a href="#3-3-1-SUID" class="headerlink" title="3.3.1 SUID"></a>3.3.1 SUID</h3><h3 id="3-3-2-SGID"><a href="#3-3-2-SGID" class="headerlink" title="3.3.2 SGID"></a>3.3.2 SGID</h3><h3 id="3-3-3-SBIT-Sticky-Bit"><a href="#3-3-3-SBIT-Sticky-Bit" class="headerlink" title="3.3.3 SBIT(Sticky Bit)"></a>3.3.3 SBIT(Sticky Bit)</h3><h2 id="3-4-文件隐藏属性与访问控制列表"><a href="#3-4-文件隐藏属性与访问控制列表" class="headerlink" title="3.4 文件隐藏属性与访问控制列表"></a>3.4 文件隐藏属性与访问控制列表</h2><h3 id="3-4-1-文件隐藏属性"><a href="#3-4-1-文件隐藏属性" class="headerlink" title="3.4.1 文件隐藏属性"></a>3.4.1 文件隐藏属性</h3><h3 id="3-4-2-访问控制列表"><a href="#3-4-2-访问控制列表" class="headerlink" title="3.4.2 访问控制列表"></a>3.4.2 访问控制列表</h3><h2 id="3-5-su-命令与-sudo-服务"><a href="#3-5-su-命令与-sudo-服务" class="headerlink" title="3.5 su 命令与 sudo 服务"></a>3.5 su 命令与 sudo 服务</h2><h3 id="3-5-1-su-命令"><a href="#3-5-1-su-命令" class="headerlink" title="3.5.1 su 命令"></a>3.5.1 su 命令</h3><h3 id="3-5-2-sudo-命令"><a href="#3-5-2-sudo-命令" class="headerlink" title="3.5.2 sudo 命令"></a>3.5.2 sudo 命令</h3>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/27/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%B8%89/" data-id="cl3rd6qye0001yov1boom7xg2" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" data-id="cl3stlxvl0001iov18kref38k" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -361,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl3rd6qyo0003yov1cssk5coe" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl3stlxvo0004iov16x0if4hd" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -396,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/" data-id="cl3rd6qyo0004yov1azxhhi5g" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/" data-id="cl3stlxvn0002iov19d3g7hfy" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -435,7 +296,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/" data-id="cl3rd6qyh0002yov17g17bx0e" data-title="我的第一篇博客（老传统了）" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/" data-id="cl3stlxv80000iov1bolz680o" data-title="我的第一篇博客（老传统了）" class="article-share-link">Share</a>
       
       
       
@@ -486,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/25/hello-world/" data-id="cl3rd6qyp0005yov13jrab8lm" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/25/hello-world/" data-id="cl3stlxvn0003iov1e8ba0udl" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -533,10 +394,6 @@
           </li>
         
           <li>
-            <a href="/2022/05/27/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%B8%89/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
           </li>
         
@@ -546,6 +403,10 @@
         
           <li>
             <a href="/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/">我的第一篇博客（老传统了）</a>
+          </li>
+        
+          <li>
+            <a href="/2022/05/25/hello-world/">Hello World</a>
           </li>
         
       </ul>
