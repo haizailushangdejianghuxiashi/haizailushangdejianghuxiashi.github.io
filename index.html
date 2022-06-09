@@ -71,6 +71,184 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-ros实验代码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/09/ros%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/" class="article-date">
+  <time class="dt-published" datetime="2022-06-09T10:54:14.813Z" itemprop="datePublished">2022-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="五角星"><a href="#五角星" class="headerlink" title="五角星"></a>五角星</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">import turtle</span><br><span class="line">turtle.shape(&quot;turtle&quot;)</span><br><span class="line">import time</span><br><span class="line">time.sleep(2)</span><br><span class="line">import turtle as t</span><br><span class="line">t.clear()</span><br><span class="line">t.penup()</span><br><span class="line">t.setx(-100)</span><br><span class="line">t.seth(100)</span><br><span class="line">t.write(&quot;五角星&quot;,align=&#x27;left&#x27;,font=(&#x27;Arial&#x27;,20,&#x27;normal&#x27;))</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(-80,0)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(2)</span><br><span class="line">t.pencolor(&quot;red&quot;)</span><br><span class="line">t.goto(-100,0)</span><br><span class="line">t.color(&quot;red&quot;,&quot;green&quot;)</span><br><span class="line">for x in range(1,9):</span><br><span class="line">    t.forward(100)</span><br><span class="line">    t.left(225)</span><br><span class="line">t.end_fill()</span><br></pre></td></tr></table></figure>
+
+<h1 id="向日葵"><a href="#向日葵" class="headerlink" title="向日葵"></a>向日葵</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">import turtle</span><br><span class="line">turtle.shape(&quot;turtle&quot;)</span><br><span class="line">import time</span><br><span class="line">time.sleep(2)</span><br><span class="line">import turtle as t</span><br><span class="line">t.penup()</span><br><span class="line">t.setx(330)</span><br><span class="line">t.sety(200)</span><br><span class="line">t.delay(20)</span><br><span class="line">t.pendown()</span><br><span class="line">t.write(&quot;向日葵&quot;,align=&#x27;right&#x27;,font=(&#x27;Arial&#x27;,20,&#x27;normal&#x27;))</span><br><span class="line">t.penup()</span><br><span class="line">t.goto(200,-50)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pencolor(&quot;red&quot;)</span><br><span class="line">for x in range(1,20):</span><br><span class="line">    t.forward(200)</span><br><span class="line">    t.left(95)</span><br></pre></td></tr></table></figure>
+
+<h1 id="奥运五环"><a href="#奥运五环" class="headerlink" title="奥运五环"></a>奥运五环</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">import turtle</span><br><span class="line">turtle.shape(&quot;turtle&quot;)</span><br><span class="line">import turtle as t</span><br><span class="line">t.clear()</span><br><span class="line">t.penup()</span><br><span class="line">t.setx(-160)</span><br><span class="line">t.sety(220)</span><br><span class="line">t.pencolor(&quot;red&quot;)</span><br><span class="line">t.write(&quot;中国加油&quot;,align=&#x27;center&#x27;,font=(&#x27;Arial&#x27;,30,&#x27;normal&#x27;))</span><br><span class="line">t.penup()</span><br><span class="line">x=-200</span><br><span class="line">y=50</span><br><span class="line">r=60</span><br><span class="line">t.goto(x,y)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(10)</span><br><span class="line">t.pencolor(&quot;blue&quot;)</span><br><span class="line">t.circle(r)</span><br><span class="line">t.penup()</span><br><span class="line"></span><br><span class="line">t.goto(x+2.5*r,y)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(10)</span><br><span class="line">t.pencolor(&#x27;black&#x27;)</span><br><span class="line">t.circle(r)</span><br><span class="line">t.penup()</span><br><span class="line"></span><br><span class="line">t.goto(x+2.5*r*2,y)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(10)</span><br><span class="line">t.pencolor(&#x27;red&#x27;)</span><br><span class="line">t.circle(r)</span><br><span class="line">t.penup()</span><br><span class="line"></span><br><span class="line">t.goto(x+2.5*r*2,y)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(10)</span><br><span class="line">t.pencolor(&#x27;red&#x27;)</span><br><span class="line">t.circle(r)</span><br><span class="line">t.penup()</span><br><span class="line"></span><br><span class="line">t.goto(x+(2.5*r)*0.5,y-r)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(10)</span><br><span class="line">t.pencolor(&#x27;yellow&#x27;)</span><br><span class="line">t.circle(r)</span><br><span class="line">t.penup()</span><br><span class="line"></span><br><span class="line">t.goto(x+(2.5*r)*0.5+2.5*r,y-r)</span><br><span class="line">t.pendown()</span><br><span class="line">t.pensize(10)</span><br><span class="line">t.pencolor(&#x27;green&#x27;)</span><br><span class="line">t.circle(r)</span><br><span class="line">t.penup()</span><br></pre></td></tr></table></figure>
+
+<h1 id="太阳花"><a href="#太阳花" class="headerlink" title="太阳花"></a>太阳花</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">import turtle</span><br><span class="line">turtle.shape(&quot;turtle&quot;)</span><br><span class="line">import time</span><br><span class="line">time.sleep(2)</span><br><span class="line">from turtle import *</span><br><span class="line">color(&#x27;red&#x27;,&#x27;yellow&#x27;)</span><br><span class="line">begin_fill()</span><br><span class="line">while True:</span><br><span class="line">    forward(200)</span><br><span class="line">    left(170)</span><br><span class="line">    if abs(pos())&lt;1:</span><br><span class="line">        break</span><br><span class="line">end_fill()</span><br><span class="line">hideturtle()</span><br><span class="line">done()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/09/ros%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/" data-id="cl46wqkaf0005lov1gvc6ao4l" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux学习模块五" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/09/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%BA%94/" class="article-date">
+  <time class="dt-published" datetime="2022-06-09T01:56:52.233Z" itemprop="datePublished">2022-06-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="正则表达式字符"><a href="#正则表达式字符" class="headerlink" title="正则表达式字符"></a>正则表达式字符</h2><p>什么是正则表达式？</p>
+<pre><code>正则表达式也称规则表达式。正则表达式是对[字符](https://baike.baidu.com/item/%E5%AD%97%E7%AC%A6)串操作的一种逻辑公式，就是用事先定义好的一些特定字符、及这些特定字符的组合，组成一个“规则字符串”，这个“规则字符串”用来表达对字符串的一种过滤逻辑。
+
+正则表达式的模式匹配
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>正则表达式的模式匹配字符</td>
+<td></td>
+</tr>
+<tr>
+<td>.</td>
+<td>点号，匹配单个任意字符</td>
+</tr>
+<tr>
+<td>[15]</td>
+<td>匹配字符串中含有1或者5（注意：系统不会认为是“15”）</td>
+</tr>
+<tr>
+<td>[0-9a-zA-Z]</td>
+<td>匹配字符串中的数字及大小写字母</td>
+</tr>
+<tr>
+<td>[^字符]</td>
+<td>匹配除[]内的字符之外的字符</td>
+</tr>
+<tr>
+<td>与模式匹配字符配合使用的两次</td>
+<td></td>
+</tr>
+<tr>
+<td>*</td>
+<td>匹配零个或多个前面的字符</td>
+</tr>
+<tr>
+<td>.*</td>
+<td>表示零个或多个任意字符，空行也包含在内</td>
+</tr>
+<tr>
+<td>{n}</td>
+<td>表示重复n次前面的字符</td>
+</tr>
+<tr>
+<td>{n,}</td>
+<td>表示重复至少n次前面的字符</td>
+</tr>
+<tr>
+<td>{n1,n2}</td>
+<td>表示重复n1到n2次前面的字符</td>
+</tr>
+<tr>
+<td>控制字符</td>
+<td></td>
+</tr>
+<tr>
+<td>^</td>
+<td>表示行的开始</td>
+</tr>
+<tr>
+<td>$</td>
+<td>表示行的结尾</td>
+</tr>
+<tr>
+<td>^$</td>
+<td>表示空行</td>
+</tr>
+<tr>
+<td>\</td>
+<td>引用特殊字符</td>
+</tr>
+</tbody></table>
+<pre><code>正则表达式使用了一些特殊字符，在真正使用时都必须用单引号括起来。
+</code></pre>
+<h2 id="grep-x2F-egrep工具的使用"><a href="#grep-x2F-egrep工具的使用" class="headerlink" title="grep&#x2F;egrep工具的使用"></a>grep&#x2F;egrep工具的使用</h2><pre><code>``grep 正则表达式 目标文件``
+
+``egrep 正则表达式 目标文件``
+</code></pre>
+<p>  egrep 中 +表示筛选一个或多个前面的字符<br>   ()表示里面的内容作为一个整体<br> ?表示筛选零个或一个前面的字符</p>
+<h2 id="sed工具的使用"><a href="#sed工具的使用" class="headerlink" title="sed工具的使用"></a>sed工具的使用</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u012587637/article/details/82054703?utm_medium=distribute.pc_relevant.none-task-blog-2~default~baidujs_utm_term~default-0-82054703-blog-116331222.pc_relevant_antiscanv3&spm=1001.2101.3001.4242.1&utm_relevant_index=2">sed命令详解_爱自在的博客-CSDN博客_sed</a></p>
+<h2 id="awk工具的使用"><a href="#awk工具的使用" class="headerlink" title="awk工具的使用"></a>awk工具的使用</h2><p>详情参考以下文章：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jin970505/article/details/79056457?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522165474208216782425191251%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&request_id=165474208216782425191251&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-2-79056457-null-null.142%5Ev11%5Econtrol,157%5Ev13%5Enew_style1&utm_term=awk%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3&spm=1018.2226.3001.4187">linux中的awk命令详解_yearing1017的博客-CSDN博客_awk命令</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/09/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%BA%94/" data-id="cl46wqkab0001lov153iu3q4o" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-Linux学习模块四" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2022/06/04/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E5%9B%9B/" class="article-date">
+  <time class="dt-published" datetime="2022-06-04T10:10:15.705Z" itemprop="datePublished">2022-06-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="vi-x2F-vim与gcc"><a href="#vi-x2F-vim与gcc" class="headerlink" title="vi&#x2F;vim与gcc"></a>vi&#x2F;vim与gcc</h1>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/06/04/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E5%9B%9B/" data-id="cl46wqkad0003lov1hddfg6a1" data-title="" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Linux学习-模块一" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" class="article-date">
@@ -187,7 +365,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" data-id="cl3stoyil0000kkv10hig3lqt" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/" data-id="cl46wqk9y0000lov12wge4rxx" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -222,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl3stoyj80004kkv1hof5917p" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl46wqkag0007lov1gqv3bp86" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -257,7 +435,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/" data-id="cl3stoyj70003kkv1bhdu1365" data-title="" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/" data-id="cl46wqkaf0006lov10okzfari" data-title="" class="article-share-link">Share</a>
       
       
       
@@ -296,7 +474,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/" data-id="cl3stoyj60002kkv1apjvg8dp" data-title="我的第一篇博客（老传统了）" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/" data-id="cl46wqkae0004lov124tfgli7" data-title="我的第一篇博客（老传统了）" class="article-share-link">Share</a>
       
       
       
@@ -347,7 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2022/05/25/hello-world/" data-id="cl3stoyiv0001kkv15k8c0pxl" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2022/05/25/hello-world/" data-id="cl46wqkac0002lov1c6c9e3i4" data-title="Hello World" class="article-share-link">Share</a>
       
       
       
@@ -377,7 +555,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/06/">June 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/05/">May 2022</a></li></ul>
     </div>
   </div>
 
@@ -390,23 +568,23 @@
       <ul>
         
           <li>
+            <a href="/2022/06/09/ros%E5%AE%9E%E9%AA%8C%E4%BB%A3%E7%A0%81/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/09/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E4%BA%94/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2022/06/04/Linux%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9D%97%E5%9B%9B/">(no title)</a>
+          </li>
+        
+          <li>
             <a href="/2022/05/28/Linux%E5%AD%A6%E4%B9%A0-%E6%A8%A1%E5%9D%97%E4%B8%80/">(no title)</a>
           </li>
         
           <li>
             <a href="/2022/05/26/ros%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/26/%E8%80%B3%E6%9C%BA%E8%BF%9E%E6%8E%A5%E4%B8%80%E7%9B%B4%E9%97%AA/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/26/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%EF%BC%88%E8%80%81%E4%BC%A0%E7%BB%9F%E4%BA%86%EF%BC%89/">我的第一篇博客（老传统了）</a>
-          </li>
-        
-          <li>
-            <a href="/2022/05/25/hello-world/">Hello World</a>
           </li>
         
       </ul>
